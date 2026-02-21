@@ -1,0 +1,27 @@
+
+resumen conceptual sobre usuarios y roles, enfocado en la lógica y las reglas de sql server:
+
+1. niveles de acceso
+
+login (servidor): es la llave de entrada. permite que sql server te reconozca y te deje conectar. se gestiona a nivel de instancia.
+usuario (base de datos): cada base de datos tiene sus propios usuarios vinculados a un login.
+
+2. roles de base de datos (permisos comunes)
+
+son etiquetas que decides ponerle a un usuario para no darle permisos uno por uno:
+
+db_datareader: el usuario solo puede ver y leer la información. no puede tocar nada.
+db_datawriter: el usuario puede insertar, cambiar o borrar datos de las filas. es el rol estándar para aplicaciones.
+db_owner: es el dueño de esa base de datos. puede borrar tablas, cambiar nombres y dar permisos a otros.
+
+3. roles de servidor (poder total)
+
+sysadmin: es el rango máximo. tiene control total sobre todas las bases de datos y la configuración del sistema.
+
+4. reglas de seguridad aprendidas
+
+edición vs. destrucción: un usuario con permisos de escritura (datawriter) puede borrar el contenido de una tabla, pero no puede eliminar la tabla en sí. para destruir la estructura se necesita un permiso de nivel superior (ddl o owner).
+
+modo de solo lectura: una base de datos puede estar bloqueada para cambios a nivel de sistema. aunque seas administrador, si la base de datos está en "read only", nadie puede editarla hasta cambiar ese estado.
+
+autenticación mixta: sql server permite entrar con tu cuenta de windows o con usuarios creados internamente (como el sa). tener ambos configurados es una buena red de seguridad.
