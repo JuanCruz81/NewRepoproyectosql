@@ -1,0 +1,33 @@
+db practices
+
+Resumen de Práctica: Control de Integridad y Restricción de Escritura
+
+Descripción:
+
+La práctica consistió en la validación de restricciones de acceso a nivel de base de datos mediante la conmutación al modo Solo Lectura (Read-Only) en SQL Server, verificando la denegación de operaciones de modificación (DML) desde un cliente externo (DBeaver).
+
+1. Acciones Realizadas
+
+Configuración del Estado: Se modificaron las propiedades de la base de datos para restringir el acceso a únicamente lectura.
+
+Prueba de Conexión: Se estableció el enlace mediante DBeaver bajo este nuevo estado.
+
+Validación de Restricción: Se intentó ejecutar una sentencia INSERT en la tabla departamentos, resultando en un rechazo sistemático por parte del motor de base de datos.
+
+2. Conceptos Técnicos Validados
+
+Integridad de Datos: Garantía de que la información no puede ser alterada durante procesos críticos o auditorías.
+
+Principio de Menor Privilegio: Simulación de un entorno donde el usuario final no tiene permisos de escritura para evitar errores humanos.
+
+Seguridad Operativa: Verificación de que las políticas aplicadas en el servidor se replican correctamente en las herramientas de administración externa.
+
+3. Aplicación en el Mundo Real (IT)
+
+Esta práctica es un estándar en:
+
+Auditorías Externas: Demostrar que los datos históricos no pueden ser manipulados.
+
+Mantenimiento de Sistemas: Bloquear cambios mientras se realizan copias de seguridad o migraciones.
+
+Entornos de Reporte: Configurar bases de datos espejo (mirrors) para que los analistas consulten datos sin riesgo de dañar la producción.
